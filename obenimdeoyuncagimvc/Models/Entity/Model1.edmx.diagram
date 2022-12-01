@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="61ce0df632074943be0ea4979a42e1c9" Name="Diagram1">
+        <EntityTypeShape EntityType="mvc_oyuncakModel.emanetoyuncaklar" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="mvc_oyuncakModel.oyuncak" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="mvc_oyuncakModel.sepet" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="mvc_oyuncakModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="mvc_oyuncakModel.uye" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
+        <AssociationConnector Association="mvc_oyuncakModel.FK_emanetoyuncaklar_sepet" ManuallyRouted="false" />
+        <AssociationConnector Association="mvc_oyuncakModel.FK_emanetoyuncaklar_uye" ManuallyRouted="false" />
+        <AssociationConnector Association="mvc_oyuncakModel.FK_sepet_oyuncak" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="mvc_oyuncakModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="emanetoyuncaklar">
+    <Key>
+      <PropertyRef Name="tc" />
+    </Key>
+    <Property Name="tc" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="adsoyad" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="yas" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="telefon" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="barkodno" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="oyuncakadi" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ureticifirma" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="oyuncakboyutu" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="oyuncakyasgrubu" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="oyuncaksayisi" Type="int" Nullable="false" />
+    <Property Name="teslimtarihi" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="iadetarihi" Type="nchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="oyuncak">
+    <Key>
+      <PropertyRef Name="barkodno" />
+    </Key>
+    <Property Name="barkodno" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="oyuncakadi" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="oyuncakboyutu" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="oyuncakyasgrubu" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ureticifirma" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="oyuncakturu" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="stoksayisi" Type="int" Nullable="false" />
+    <Property Name="rafno" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="açıklama" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="kayıttarihi" Type="nchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sepet">
+    <Key>
+      <PropertyRef Name="barkodno" />
+    </Key>
+    <Property Name="barkodno" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="oyuncakadi" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ureticifirma" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="oyuncakboyutu" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="oyuncakyasgrubu" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="oyuncaksayisi" Type="int" Nullable="false" />
+    <Property Name="teslimtarihi" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="iadetarihi" Type="nchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="uye">
+    <Key>
+      <PropertyRef Name="tc" />
+    </Key>
+    <Property Name="tc" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="adsoyad" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="yas" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="cinsiyet" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="telefon" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="adres" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="oyuncaksayisi" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_emanetoyuncaklar_sepet">
+    <End Role="sepet" Type="Self.sepet" Multiplicity="1" />
+    <End Role="emanetoyuncaklar" Type="Self.emanetoyuncaklar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sepet">
+        <PropertyRef Name="barkodno" />
+      </Principal>
+      <Dependent Role="emanetoyuncaklar">
+        <PropertyRef Name="barkodno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_emanetoyuncaklar_uye">
+    <End Role="uye" Type="Self.uye" Multiplicity="1" />
+    <End Role="emanetoyuncaklar" Type="Self.emanetoyuncaklar" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="uye">
+        <PropertyRef Name="tc" />
+      </Principal>
+      <Dependent Role="emanetoyuncaklar">
+        <PropertyRef Name="tc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_sepet_oyuncak">
+    <End Role="oyuncak" Type="Self.oyuncak" Multiplicity="1" />
+    <End Role="sepet" Type="Self.sepet" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="oyuncak">
+        <PropertyRef Name="barkodno" />
+      </Principal>
+      <Dependent Role="sepet">
+        <PropertyRef Name="barkodno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="mvc_oyuncakModelStoreContainer">
+    <EntitySet Name="emanetoyuncaklar" EntityType="Self.emanetoyuncaklar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="oyuncak" EntityType="Self.oyuncak" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sepet" EntityType="Self.sepet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="uye" EntityType="Self.uye" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_emanetoyuncaklar_sepet" Association="Self.FK_emanetoyuncaklar_sepet">
+      <End Role="sepet" EntitySet="sepet" />
+      <End Role="emanetoyuncaklar" EntitySet="emanetoyuncaklar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_emanetoyuncaklar_uye" Association="Self.FK_emanetoyuncaklar_uye">
+      <End Role="uye" EntitySet="uye" />
+      <End Role="emanetoyuncaklar" EntitySet="emanetoyuncaklar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_sepet_oyuncak" Association="Self.FK_sepet_oyuncak">
+      <End Role="oyuncak" EntitySet="oyuncak" />
+      <End Role="sepet" EntitySet="sepet" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

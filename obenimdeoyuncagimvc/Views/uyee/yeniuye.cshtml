@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "yeniuye";
+    Layout = "~/Views/Shared/_mainLayout.cshtml";
+}
+<script type="text/javascript">
+function SayiGirme(degisken) {
+degisken = (degisken) ? degisken : window.event;
+var charCode = (degisken.which) ? degisken.which : degisken.keyCode;
+if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+return false;
+}
+return true;
+    }
+    
+
+</script>
+  
+   
+<script type="text/javascript">
+        function HarfGirme(degisken) {
+            degisken = (degisken) ? degisken : window.event;
+            var charCode = (degisken.which) ? degisken.which : degisken.keyCode;
+            if ((charCode >= 65 && charCode <= 90) || (charCode >= 97 && charCode <= 122)) {
+                return true;
+            }
+            return false;
+        }
+
+</script>
+
+<form method="post" class="form-group">
+    <div>
+        <label>
+            <label>Üye TC</label>
+            <input type="text" minlength="11" maxlength="11" class="form-control" name="tc"  runat="server"  onkeypress="return SayiGirme(event)">
+            <label>Ad Soyad</label>
+            <input type="text" class="form-control" name="adsoyad" runat="server" onkeypress="return HarfGirme(event)" />
+            <label>Yaş</label>
+            <input type="text" class="form-control" name="yas"  runat="server"  onkeypress="return SayiGirme(event)"/>
+            <label>Cinsiyet</label>
+            <input type="text" class="form-control" name="cinsiyet" />
+            <label>Telefon Numarası</label>
+            <input type="text" minlength="11" maxlength="11" class="form-control" name="telefon"  runat="server"  onkeypress="return SayiGirme(event)" />
+            <label>Adres</label>
+            <input type="text" class="form-control" name="adres" />
+            <label>E-mail</label>
+            <input type="email" class="form-control" name="email" />
+            <label>Oyuncak Sayısı</label>
+            <input type="number" class="form-control" name="oyuncaksayisi" />
+        </label>
+    </div>
+    <div>
+        <button class="btn btn-info">Üye Ekle</button>
+    </div>
+</form>
+

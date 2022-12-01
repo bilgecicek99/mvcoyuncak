@@ -1,0 +1,55 @@
+﻿@model obenimdeoyuncagimvc.Models.Entity.oyuncak
+@{
+    ViewBag.Title = "yenioyuncak";
+    Layout = "~/Views/Shared/_mainLayout.cshtml";
+}
+
+<form class="form-group" method="post">
+    <div>
+        <label>Oyuncak Barkod No</label>
+        <input type="text" class="form-control" name="barkodno" />,
+    </div>
+    <div>
+        <label>Oyuncak Adı</label>
+        <input type="text" class="form-control" name="oyuncakadi" />
+    </div>
+    <div>
+        <label>Oyuncak Boyutu</label>
+        <input type="text" class="form-control" name="oyuncakboyutu" />
+    </div>
+    <div>
+        <label>Oyuncak Yaş Grubu</label>
+        <input type="text" class="form-control" name="oyuncakyasgrubu" />
+    </div>
+    <div>
+        <label>Üretici Firma</label>
+        <input type="text" class="form-control" name="ureticifirma" />
+    </div>
+    <div>
+        <label>Oyuncak Türü</label>
+        <input type="text" class="form-control" name="oyuncakturu" />
+    </div>
+    <div>
+        <label>Oyuncak Stok Sayısı</label>
+        <input type="number" class="form-control" name="stoksayisi" />
+    </div>
+    <div>
+        <label>Oyuncak Raf Numarası</label>
+        <input type="text" class="form-control" name="rafno" />
+    </div>
+    <div>
+        <label>Açıklama</label>
+        <input type="text" class="form-control" name="açıklama" />
+    </div>
+    <div>
+        <label>Kayıt Tarihi</label>
+        <input type="text" class="form-control" name="kayıttarihi" />
+    </div>
+
+   
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Oyuncak Ekle</button>
+    </div>
+</form>
+
+

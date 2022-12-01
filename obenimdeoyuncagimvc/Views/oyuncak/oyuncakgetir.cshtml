@@ -1,0 +1,46 @@
+﻿@model  obenimdeoyuncagimvc.Models.Entity.oyuncak
+@{
+    ViewBag.Title = "oyuncakgetir";
+    Layout = "~/Views/Shared/_mainLayout.cshtml";
+}
+
+@using (Html.BeginForm("Guncelle", "oyuncak", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.barkodno)
+        @Html.TextBoxFor(m => m.barkodno, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.oyuncakadi)
+        @Html.TextBoxFor(m => m.oyuncakadi, new { @class = "form-control" })
+
+        @Html.LabelFor(m => m.oyuncakboyutu)
+        @Html.TextBoxFor(m => m.oyuncakboyutu, new { @class = "form-control" })
+
+        @Html.LabelFor(m => m.oyuncakyasgrubu)
+        @Html.TextBoxFor(m => m.oyuncakyasgrubu, new { @class = "form-control" })
+
+        @Html.LabelFor(m => m.ureticifirma)
+        @Html.TextBoxFor(m => m.ureticifirma, new { @class = "form-control" })
+
+        @Html.LabelFor(m => m.oyuncakturu)
+        @Html.TextBoxFor(m => m.oyuncakturu, new { @class = "form-control" })
+
+        @Html.LabelFor(m => m.stoksayisi)
+        @Html.TextBoxFor(m => m.stoksayisi, new { @class = "form-control" })
+
+        @Html.LabelFor(m => m.rafno)
+        @Html.TextBoxFor(m => m.rafno, new { @class = "form-control" })
+
+        @Html.LabelFor(m => m.açıklama)
+        @Html.TextBoxFor(m => m.açıklama, new { @class = "form-control" })
+
+        @Html.LabelFor(m=>m.kayıttarihi)
+        @Html.TextBoxFor(m => m.kayıttarihi, new { @class = "form-control" })
+
+
+    </div>
+    <div>
+        <button class="btn btn-warning">Oyuncak Güncelle</button>
+    </div>
+}
+

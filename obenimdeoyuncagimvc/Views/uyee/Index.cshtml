@@ -1,0 +1,49 @@
+﻿@using obenimdeoyuncagimvc.Models.Entity
+@model List<uye>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_mainLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th> Üye TC'si:</th>
+        <th> Üye Ad-Soyad:</th>
+        <th> Üye Yaş:</th>
+        <th> Cinsiyet:</th>
+        <th> Üye Telefon:</th>
+        <th> Üye Adres:</th>
+        <th> Üye E-mail:</th>
+        <th> Oyuncak Sayısı:</th>
+        <th> Sil</th>
+        <th> Güncelle</th>
+
+    </tr>
+    <tbody>
+        @foreach(var uye in Model)
+        {
+            using (Html.BeginForm("sil", "uyee", new { tc = uye.tc }))
+            {
+        <tr>
+            <th>@uye.tc</th>
+            <th>@uye.adsoyad</th>
+            <th>@uye.yas</th>
+            <th>@uye.cinsiyet</th>
+            <th>@uye.telefon</th>
+            <th>@uye.adres</th>
+            <th>@uye.email</th>
+            <th>@uye.oyuncaksayisi</th>
+            <!--<td><a href="/uyee/sil/@uye.tc" class="btn btn-danger">sil</a></td>-->
+            <td>
+            <input type="submit" value="sil" class="btn btn-danger" /></td>
+            <td><a href="/uyee/güncelle/@uye.tc" class="btn btn-warning">güncelle</a></td>
+            
+
+        </tr>
+            }
+        }
+    </tbody>
+        
+</table>
+<a href="/uyee/yeniuye/" class="btn btn-primary">Yeni Üye Ekle</a>
+

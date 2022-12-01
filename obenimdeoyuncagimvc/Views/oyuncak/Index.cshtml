@@ -1,0 +1,53 @@
+﻿@using obenimdeoyuncagimvc.Models.Entity
+@model List<oyuncak>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_mainLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>Barkod No</th>
+        <th> Oyuncak Adı</th>
+        <th> Oyuncak Boyutu</th>
+        <th> Oyuncak Yaş Grubu</th>
+        <th> Üretici Firma</th>
+        <th> Oyuncak Türü</th>
+        <th> Stok Sayısı</th>
+        <th> Raf Numarası</th>
+        <th> Açıklama </th>
+        <th> Kayıt Tarihi</th>
+        <th> Sil</th>
+        <th> Güncelle</th>
+        <th> Sepete Ekle</th>
+
+    </tr>
+    <tbody>
+        @foreach (var oyuncak in Model)
+        {
+
+            using (Html.BeginForm("sil", "oyuncak", new { barkodno = oyuncak.barkodno }))
+            {
+                <tr>
+                    <th>@oyuncak.barkodno</th>
+                    <th>@oyuncak.oyuncakadi</th>
+                    <th>@oyuncak.oyuncakboyutu</th>
+                    <th>@oyuncak.oyuncakyasgrubu</th>
+                    <th>@oyuncak.ureticifirma</th>
+                    <th>@oyuncak.oyuncakturu</th>
+                    <th>@oyuncak.stoksayisi</th>
+                    <th>@oyuncak.rafno</th>
+                    <th>@oyuncak.açıklama</th>
+                    <th>@oyuncak.kayıttarihi</th>
+                    <td><input type="submit" value="sil" class="btn btn-danger" /></td>
+                    <td><input type="submit" value="guncelle" class="btn btn-warning" /></td>
+                    <td><a href="/sepet/SepeteEkle?barkodno=@oyuncak.barkodno" class="btn btn-primary">sepete ekle</a></td>
+                </tr>
+}
+
+        }
+    </tbody>
+</table>
+
+<a href="/oyuncak/yenioyuncak/" class="btn btn-primary">Yeni Oyuncak Ekle</a>

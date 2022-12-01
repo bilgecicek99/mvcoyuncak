@@ -1,0 +1,69 @@
+﻿@using obenimdeoyuncagimvc.Models.Entity
+@model List<sepet>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_mainLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>Barkod No</th>
+        <th> Oyuncak Adı</th>
+        <th> Üretici Firma</th>
+        <th> Oyuncak Boyutu</th>
+        <th> Oyuncak Yaş Grubu</th>
+        <th> Oyuncak Sayısı</th>
+        <th>Teslim Tarihi</th>
+        <th> İade Tarihi</th>
+        <th> Temizle</th>
+        <th> Güncelle</th>
+        <th>Emanet ver</th>
+
+    </tr>
+    <tbody>
+        @foreach (var sepet in Model)
+        {
+            using (Html.BeginForm("temizle", "sepet", new { barkodno = sepet.barkodno }))
+            {<tr>
+    <th>@sepet.barkodno</th>
+    <th>@sepet.oyuncakadi</th>
+    <th>@sepet.ureticifirma</th>
+    <th>@sepet.oyuncakboyutu</th>
+    <th>@sepet.oyuncakyasgrubu</th>
+    <th>@sepet.oyuncaksayisi</th>
+    <th>@sepet.teslimtarihi</th>
+    <th>@sepet.iadetarihi</th>
+    <td><input type="submit" value="temizle" class="btn btn-danger" /></td>
+    <!--<td><a href="/uye/sil/@sepet.barkodno" class="btn btn-danger">çıkart</a></td>-->
+    <td><a href="/uye/güncelle/@sepet.barkodno" class="btn btn-success">güncelle</a></td>
+    <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal1">Emanet ver</button></td>
+        
+    
+    <div class="modal" id="Modal1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Emanet Verme Ekranı</h2>
+                </div>
+                <form>
+                    <div class="modal-body">
+                        <label>
+                            Emanet Verilecek Kişinin T.C Numarası:
+                        </label>
+                        <input type="text" name="tc" class="form-control" />
+                        <label>
+                            Emanet Verilecek Kişinin Adı Soyadı:
+                        </label>
+                        <input type="text" name="adsoyad" class="form-control" />
+
+                        <input href="/uye/güncelle/@sepet.barkodno" value="Bilgileri Ekle ve Devam et" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</tr>
+            }
+        }
+</table>

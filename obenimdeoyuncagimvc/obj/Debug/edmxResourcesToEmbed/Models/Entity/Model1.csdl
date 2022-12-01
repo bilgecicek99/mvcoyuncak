@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="mvc_oyuncakModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="emanetoyuncaklar">
+    <Key>
+      <PropertyRef Name="tc" />
+    </Key>
+    <Property Name="tc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="adsoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="yas" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="telefon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="barkodno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="oyuncakadi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ureticifirma" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="oyuncakboyutu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="oyuncakyasgrubu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="oyuncaksayisi" Type="Int32" Nullable="false" />
+    <Property Name="teslimtarihi" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="iadetarihi" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="sepet" Relationship="Self.FK_emanetoyuncaklar_sepet" FromRole="emanetoyuncaklar" ToRole="sepet" />
+    <NavigationProperty Name="uye" Relationship="Self.FK_emanetoyuncaklar_uye" FromRole="emanetoyuncaklar" ToRole="uye" />
+  </EntityType>
+  <EntityType Name="oyuncak">
+    <Key>
+      <PropertyRef Name="barkodno" />
+    </Key>
+    <Property Name="barkodno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="oyuncakadi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="oyuncakboyutu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="oyuncakyasgrubu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ureticifirma" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="oyuncakturu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="stoksayisi" Type="Int32" Nullable="false" />
+    <Property Name="rafno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="açıklama" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="kayıttarihi" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="sepet" Relationship="Self.FK_sepet_oyuncak" FromRole="oyuncak" ToRole="sepet" />
+  </EntityType>
+  <EntityType Name="sepet">
+    <Key>
+      <PropertyRef Name="barkodno" />
+    </Key>
+    <Property Name="barkodno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="oyuncakadi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ureticifirma" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="oyuncakboyutu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="oyuncakyasgrubu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="oyuncaksayisi" Type="Int32" Nullable="false" />
+    <Property Name="teslimtarihi" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="iadetarihi" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="emanetoyuncaklar" Relationship="Self.FK_emanetoyuncaklar_sepet" FromRole="sepet" ToRole="emanetoyuncaklar" />
+    <NavigationProperty Name="oyuncak" Relationship="Self.FK_sepet_oyuncak" FromRole="sepet" ToRole="oyuncak" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="uye">
+    <Key>
+      <PropertyRef Name="tc" />
+    </Key>
+    <Property Name="tc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="adsoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="yas" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="cinsiyet" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="telefon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="adres" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="oyuncaksayisi" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="emanetoyuncaklar" Relationship="Self.FK_emanetoyuncaklar_uye" FromRole="uye" ToRole="emanetoyuncaklar" />
+  </EntityType>
+  <Association Name="FK_emanetoyuncaklar_sepet">
+    <End Role="sepet" Type="Self.sepet" Multiplicity="1" />
+    <End Role="emanetoyuncaklar" Type="Self.emanetoyuncaklar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sepet">
+        <PropertyRef Name="barkodno" />
+      </Principal>
+      <Dependent Role="emanetoyuncaklar">
+        <PropertyRef Name="barkodno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_emanetoyuncaklar_uye">
+    <End Role="uye" Type="Self.uye" Multiplicity="1" />
+    <End Role="emanetoyuncaklar" Type="Self.emanetoyuncaklar" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="uye">
+        <PropertyRef Name="tc" />
+      </Principal>
+      <Dependent Role="emanetoyuncaklar">
+        <PropertyRef Name="tc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_sepet_oyuncak">
+    <End Role="oyuncak" Type="Self.oyuncak" Multiplicity="1" />
+    <End Role="sepet" Type="Self.sepet" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="oyuncak">
+        <PropertyRef Name="barkodno" />
+      </Principal>
+      <Dependent Role="sepet">
+        <PropertyRef Name="barkodno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="mvc_oyuncakEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="emanetoyuncaklar" EntityType="Self.emanetoyuncaklar" />
+    <EntitySet Name="oyuncak" EntityType="Self.oyuncak" />
+    <EntitySet Name="sepet" EntityType="Self.sepet" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="uye" EntityType="Self.uye" />
+    <AssociationSet Name="FK_emanetoyuncaklar_sepet" Association="Self.FK_emanetoyuncaklar_sepet">
+      <End Role="sepet" EntitySet="sepet" />
+      <End Role="emanetoyuncaklar" EntitySet="emanetoyuncaklar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_emanetoyuncaklar_uye" Association="Self.FK_emanetoyuncaklar_uye">
+      <End Role="uye" EntitySet="uye" />
+      <End Role="emanetoyuncaklar" EntitySet="emanetoyuncaklar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_sepet_oyuncak" Association="Self.FK_sepet_oyuncak">
+      <End Role="oyuncak" EntitySet="oyuncak" />
+      <End Role="sepet" EntitySet="sepet" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

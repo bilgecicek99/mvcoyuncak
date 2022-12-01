@@ -1,0 +1,87 @@
+﻿
+@using obenimdeoyuncagimvc.Models.Entity
+@{
+    ViewBag.Title = "index";
+    Layout = "~/Views/Shared/_mainLayout.cshtml";
+}
+
+<h2> <br />Hoşgeldiniz,Projenin Döküman Kısmıdır.</h2>
+
+
+<div class="oyuncakfoto">
+
+    <a>
+        <img src="1.jpg" />
+    </a>
+
+</div>
+<th>
+
+    <b>1.Uygulama Tanıtımı:</b>
+
+    <p>Bu uygulama oyuncaksız çocuklar için tasarlanmış ASP NET MVC uygulamasıdır. Oyuncak alamayan çocuklar bir oyuncak kütüphanesinden yaş grubuna göre oyuncak ödünç alabilecek ve bir süre kullandıktan sonra teslim ederek başka bir oyuncak alabilecek aynı zamanda alabileceği total oyuncak sayısı belirlenecektir o sayıdan daha fazla alınmasına izin verilmeyecektir. Kütüphane otomasyon sisteminin oyuncağa uyarlanmış hali diyebiliriz.</p>
+
+</th>&emsp;
+
+<div>
+
+    <b>2.Amacı:</b>
+    <p>Gittikçe artan oyuncak fiyatları nedeniyle çoğu çocuk istediği oyuncağa ulaşmakta güçlük çekmektedir hatta ulaşamamaktadır. Bu durum çocukları üzdüğü gibi aileleri de çok büyük oranda yıpratmaktadır. Bunu önlemek amacıyla çocuk gidip oyuncak deposundan yaş grubuna uygun oyuncaklardan istediğini seçip sıkılana kadar ücretsiz olarak kullanabilecektir.</p>
+
+
+</div>
+<thead>
+    <strong> Gelişmeler Tablosu</strong>
+ </thead>
+<table border="1">
+
+
+
+    <tr>
+        <td>&nbsp;</td>
+
+        <td>
+            Tarih<br />
+
+        </td>
+        <td>Özet</td>
+
+    </tr>
+    <tr>
+        <td>Versiyon <br />1.1</td>
+        <td>22.11.2022</td>
+        <td>
+            <p>Üye Sayfaları Yapıldı(üye listele,üye ekle)</p>
+            <p>Oyuncak Sayfaları Yapıldı (oyuncak listele,oyuncak ekle)</p>
+            <p>Sepet Sayfası Yapıldı(sepet listele)</p>
+
+        </td>
+    </tr>
+    <tr>
+        <td>Versiyon <br />1.2</td>
+        <td>24.11.2022</td>
+        <td>
+            <p>Anasayfa Düzenlendi</p>
+
+        </td>
+    </tr>
+
+</table>
+&emsp;
+
+
+
+<div>
+
+    <b>VERSİYON 1.1'DE YAPILANLAR:</b>
+    <p>C# da formlarla oluşturduğum projeyi MVC ye taşımak için ilk olarak veri tabanı ve tabloları oluşturarak başladım daha sonra tablolar arasında diyagram oluşturdum.</p>
+    <b>1.Üye Listeleme Sayfası</b>
+    <p>Burada öncelikle veritabanını ekledim. Sonra sınıf oluşturdum ve buraya başlıkları girdim .Başlıkları yazdıktan sonra  gövde içeriğini gruplandırdım. Foreach döngüsü kullanarak modelin içindeki üyeleri döngüye aldım ve bu sefer de veri tabanından çekme kodlarını yazdım. </p>
+    <b>2.Üye Ekleme Sayfası</b>
+    <p> Bunun için yeniuye.cshtml adında yeni bir görünüm (view) kısmı ekledim ve içerisine form oluşturup metodunu girdim ve bir form-group adında sınıf oluşturdum. Sonra üye eklerken gerekli olan bilgileri girdim öncelikle gözükecek olan başlıkları belirttim daha sonra ise girdi yapılabilmesi için input içinde verinin type ını ve classını daha sonra veri tabanındaki ismini girdim ve bunu tüm labellar için gerçekleştirdim. </p>
+    <b>3.Oyuncak Listeleme Sayfası</b>
+    <p>Burada da ilk olarak veritabanını kullanarak başladım. Daha sonra kullanılacak listeyi ekledim. Ve ardından tablo sınıfı oluşturdum altına yer alacak olan başlıkları th etiketinin içine girdim. Sonra bir foreach döngüsü oluşturdum modelin içindeki oyuncaklar için ve yine veritabanından çekmesi için gerekli olan kodları tek tek yazdım.</p>
+    <b>4.Oyuncak Ekleme Sayfası</b>
+    <p>Yenioyuncak.cshtml adında yeni bir view ekledim (görünüm). Burada da hangi veritabanını kullancağını ekleyerek başladım. Daha sonra bir form ve bu formun içine sınıf ve methodunu girdim. İlk satırda gözükçek başlıklarını hemen altında type larını ve sınıflarını ve veritabanındaki adlarını yazarak bu işlemi tüm girdiler için uyguladım.</p>
+
+</div>

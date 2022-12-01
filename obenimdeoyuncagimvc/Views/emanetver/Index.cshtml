@@ -1,0 +1,49 @@
+﻿@using obenimdeoyuncagimvc.Models.Entity
+@model List<emanetoyuncaklar>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_mainLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>tc</th>
+        <th>adsoyad</th>
+        <th>yas</th>
+        <th>telefon</th>
+        <th>barkodno</th>
+        <th>oyuncakadi</th>
+        <th>ureticifirma</th>
+        <th>oyuncakboyutu</th>
+        <th>oyuncakyasgrubu</th>
+        <th>oyuncaksayisi</th>
+        <th>teslimtarihi</th>
+        <th>iadetarihi</th>
+        <th>iade et</th>
+
+    </tr>
+    <tbody>
+        @foreach (var emanetoyuncaklar in Model)
+        {
+            using (Html.BeginForm("sil", "emanetver", new { tc = emanetoyuncaklar.tc }))
+            {
+                <tr>
+                    <td>@emanetoyuncaklar.tc</td>
+                    <td>@emanetoyuncaklar.adsoyad</td>
+                    <td>@emanetoyuncaklar.yas</td>
+                    <td>@emanetoyuncaklar.telefon</td>
+                    <td>@emanetoyuncaklar.barkodno</td>
+                    <td>@emanetoyuncaklar.oyuncakadi</td>
+                    <td>@emanetoyuncaklar.ureticifirma</td>
+                    <td>@emanetoyuncaklar.oyuncakboyutu</td>
+                    <td>@emanetoyuncaklar.oyuncakyasgrubu</td>
+                    <td>@emanetoyuncaklar.oyuncaksayisi</td>
+                    <td>@emanetoyuncaklar.teslimtarihi</td>
+                    <td>@emanetoyuncaklar.iadetarihi</td>
+                    <td><input type="submit" value="sil" class="btn btn-danger" /></td>
+
+                </tr>
+            }
+        }
+    </tbody>
+</table>
