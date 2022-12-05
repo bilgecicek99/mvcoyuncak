@@ -39,7 +39,7 @@ return true;
             <label>Yaş</label>
             <input type="text" class="form-control" name="yas"  runat="server"  onkeypress="return SayiGirme(event)"/>
             <label>Cinsiyet</label>
-            <input type="text" class="form-control" name="cinsiyet" />
+            <input type="text" class="form-control" name="cinsiyet" runat="server" onkeypress="return HarfGirme(event)" />
             <label>Telefon Numarası</label>
             <input type="text" minlength="11" maxlength="11" class="form-control" name="telefon"  runat="server"  onkeypress="return SayiGirme(event)" />
             <label>Adres</label>

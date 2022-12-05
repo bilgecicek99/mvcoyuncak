@@ -3,15 +3,40 @@
     ViewBag.Title = "yenioyuncak";
     Layout = "~/Views/Shared/_mainLayout.cshtml";
 }
+<script type="text/javascript">
+function SayiGirme(degisken) {
+degisken = (degisken) ? degisken : window.event;
+var charCode = (degisken.which) ? degisken.which : degisken.keyCode;
+if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+return false;
+}
+return true;
+    }
+
+
+</script>
+
+<script type="text/javascript">
+    function HarfGirme(degisken) {
+        degisken = (degisken) ? degisken : window.event;
+        var charCode = (degisken.which) ? degisken.which : degisken.keyCode;
+        if ((charCode >= 65 && charCode <= 90) || (charCode >= 97 && charCode <= 122)) {
+            return true;
+        }
+        return false;
+    }
+
+</script>
+
 
 <form class="form-group" method="post">
     <div>
         <label>Oyuncak Barkod No</label>
-        <input type="text" class="form-control" name="barkodno" />,
+        <input type="text" class="form-control" name="barkodno"  runat="server"  onkeypress="return SayiGirme(event)" />,
     </div>
     <div>
         <label>Oyuncak Adı</label>
-        <input type="text" class="form-control" name="oyuncakadi" />
+        <input type="text" class="form-control" name="oyuncakadi" runat="server" onkeypress="return HarfGirme(event)"  />
     </div>
     <div>
         <label>Oyuncak Boyutu</label>
@@ -23,7 +48,7 @@
     </div>
     <div>
         <label>Üretici Firma</label>
-        <input type="text" class="form-control" name="ureticifirma" />
+        <input type="text" class="form-control" name="ureticifirma" runat="server" onkeypress="return HarfGirme(event)" />
     </div>
     <div>
         <label>Oyuncak Türü</label>
@@ -35,7 +60,7 @@
     </div>
     <div>
         <label>Oyuncak Raf Numarası</label>
-        <input type="text" class="form-control" name="rafno" />
+        <input type="text" class="form-control" name="rafno" runat="server"  onkeypress="return SayiGirme(event)"  />
     </div>
     <div>
         <label>Açıklama</label>
@@ -43,10 +68,10 @@
     </div>
     <div>
         <label>Kayıt Tarihi</label>
-        <input type="text" class="form-control" name="kayıttarihi" />
+        <input type="date" class="form-control" name="kayıttarihi" />
     </div>
 
-   
+
     <div style="margin-top:15px">
         <button class="btn btn-info">Oyuncak Ekle</button>
     </div>
